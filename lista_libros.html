@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Libros</title>
+    <style>
+        body {
+            background-color: #d4edda; /* Verde suave */
+            color: #003366; /* Azul marino */
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            color: #003366;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        li {
+            background-color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Libros de Harry Potter</h1>
+    <ul>
+        <li>Harry Potter y la piedra filosofal - J.K. Rowling</li>
+        <li>Harry Potter y la cámara secreta - J.K. Rowling</li>
+        <li>Harry Potter y el prisionero de Azkaban - J.K. Rowling</li>
+        <li>Harry Potter y el cáliz de fuego - J.K. Rowling</li>
+        <li>Harry Potter y la Orden del Fénix - J.K. Rowling</li>
+        <li>Harry Potter y el misterio del príncipe - J.K. Rowling</li>
+        <li>Harry Potter y las Reliquias de la Muerte - J.K. Rowling</li>
+    </ul>
+    <!-- Enlace para regresar -->
+    <a href="{% url 'lista_libros' %}">Regresar a la Lista</a>
+</body>
+</html>
+

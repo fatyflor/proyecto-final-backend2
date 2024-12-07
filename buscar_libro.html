@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Libro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d4f1d4; /* Color verde suave */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #2d5d34;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #2d5d34;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .result h2 {
+            color: #2d5d34;
+        }
+
+        .result ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .result li {
+            background: #f8f8f8;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .message {
+            margin-top: 20px;
+            color: #ff0000;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Buscar Libro</h1>
+        <form method="get">
+            <div>
+                <label for="titulo">Título del Libro</label>
+                <input type="text" id="titulo" name="titulo" value="{{ query_titulo }}" placeholder="Ingresa el título">
+            </div>
+            <div>
+                <label for="autor">Autor</label>
+                <input type="text" id="autor" name="autor" value="{{ query_autor }}" placeholder="Ingresa el autor">
+            </div>
+            <button type="submit">Buscar</button>
+        </form>
+
+        {% if mensaje %}
+        <div class="message">
+            <p>{{ mensaje }}</p>
+        </div>
+        {% endif %}
+
+        {% if libros %}
+        <div class="result">
+            <h2>Resultados de la Búsqueda:</h2>
+            <ul>
+                {% for libro in libros %}
+                <li>{{ libro.titulo }} - {{ libro.autor }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
